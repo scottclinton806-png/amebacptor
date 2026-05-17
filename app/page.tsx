@@ -322,15 +322,15 @@ const PRODUCT_COLORS: Record<string, string> = {
   "ZeroTol": "#ef4444",
   "OxiPhos": "#3b82f6",
   "Azaguard": "#22c55e",
-  "Organic Shield": "#a855f7",
+  "OrganiShield": "#a855f7",
   "Lost Coast Plant Therapy": "#f59e0b",
 };
 
 const HOME_GROW_SCHEDULE = [
   { day: "Week 1 — Day 1", products: [{ name: "Lost Coast Plant Therapy", dose: "2 oz/gal" }] },
-  { day: "Week 2 — Day 1", products: [{ name: "Organic Shield", dose: "50 mL/gal" }] },
+  { day: "Week 2 — Day 1", products: [{ name: "OrganiShield", dose: "50 mL/gal" }] },
   { day: "Week 3 — Day 1", products: [{ name: "Lost Coast Plant Therapy", dose: "2 oz/gal" }] },
-  { day: "Week 4 — Day 1", products: [{ name: "Organic Shield", dose: "50 mL/gal" }] },
+  { day: "Week 4 — Day 1", products: [{ name: "OrganiShield", dose: "50 mL/gal" }] },
 ];
 
 const ORGANIC_SHIELD_DOSES = [
@@ -417,11 +417,11 @@ export default function IPMGuide() {
           </div>
         )}
 
-        {/* ORGANIC SHIELD DOSING GUIDE */}
+        {/* ORGANISHIELD DOSING GUIDE */}
         {growMode === "commercial" && (
           <div style={{ background: "#111", border: "1px solid #1e1e1e", borderRadius: 14, overflow: "hidden", marginBottom: 22 }}>
             <div style={{ padding: "12px 18px", borderBottom: "1px solid #1a1a1a", fontSize: 10, letterSpacing: 4, color: "#555", textTransform: "uppercase" }}>
-              Organic Shield Dosing Guide
+              OrganiShield Dosing Guide
             </div>
             {ORGANIC_SHIELD_DOSES.map((d: { level: string; dose: string; color: string; description: string }, i: number) => (
               <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "12px 18px", borderBottom: i < 2 ? "1px solid #161616" : "none" }}>
