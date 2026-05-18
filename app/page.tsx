@@ -322,15 +322,15 @@ const PRODUCT_COLORS: Record<string, string> = {
   "ZeroTol": "#ef4444",
   "OxiPhos": "#3b82f6",
   "Azaguard": "#22c55e",
-  "OrganiShield": "#a855f7",
+  "Organic Shield": "#a855f7",
   "Lost Coast Plant Therapy": "#f59e0b",
 };
 
 const HOME_GROW_SCHEDULE = [
   { day: "Week 1 — Day 1", products: [{ name: "Lost Coast Plant Therapy", dose: "2 oz/gal" }] },
-  { day: "Week 2 — Day 1", products: [{ name: "OrganiShield", dose: "50 mL/gal" }] },
+  { day: "Week 2 — Day 1", products: [{ name: "Organic Shield", dose: "50 mL/gal" }] },
   { day: "Week 3 — Day 1", products: [{ name: "Lost Coast Plant Therapy", dose: "2 oz/gal" }] },
-  { day: "Week 4 — Day 1", products: [{ name: "OrganiShield", dose: "50 mL/gal" }] },
+  { day: "Week 4 — Day 1", products: [{ name: "Organic Shield", dose: "50 mL/gal" }] },
 ];
 
 const ORGANIC_SHIELD_DOSES = [
@@ -417,24 +417,46 @@ export default function IPMGuide() {
           </div>
         )}
 
-        {/* ORGANISHIELD DOSING GUIDE */}
+        {/* COMMERCIAL SPRAY PHILOSOPHY */}
         {growMode === "commercial" && (
           <div style={{ background: "#111", border: "1px solid #1e1e1e", borderRadius: 14, overflow: "hidden", marginBottom: 22 }}>
             <div style={{ padding: "12px 18px", borderBottom: "1px solid #1a1a1a", fontSize: 10, letterSpacing: 4, color: "#555", textTransform: "uppercase" }}>
-              OrganiShield Dosing Guide
+              🛡️ Commercial Spray Philosophy
             </div>
-            {ORGANIC_SHIELD_DOSES.map((d: { level: string; dose: string; color: string; description: string }, i: number) => (
-              <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "12px 18px", borderBottom: i < 2 ? "1px solid #161616" : "none" }}>
-                <div>
-                  <div style={{ fontSize: 13, color: d.color, fontWeight: "bold" }}>{d.level}</div>
-                  <div style={{ fontSize: 11, color: "#555", marginTop: 2 }}>{d.description}</div>
-                </div>
-                <div style={{ fontSize: 16, fontWeight: "bold", color: d.color }}>{d.dose}</div>
+            <div style={{ padding: "18px" }}>
+              <div style={{ fontSize: 13, color: "#aaa", lineHeight: 1.7, marginBottom: 16 }}>
+                Our commercial IPM approach addresses every threat — hard-bodied insects, soft-bodied insects, mold spores, and eggs — every single week. The goal is maximum protection with minimum stress on the plant.
               </div>
-            ))}
-            <div style={{ padding: "10px 18px", borderTop: "1px solid #1a1a1a", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <div style={{ fontSize: 12, color: "#555" }}>🪴 Commercial Pot Size</div>
-              <div style={{ fontSize: 13, fontWeight: "bold", color: "#fb923c" }}>7 Gallon</div>
+              {[
+                {
+                  icon: "🗓️",
+                  title: "Staggered — Never Combined",
+                  desc: "We wait 4 days between sprays and rotate solutions so the plant is never overwhelmed and pests never develop resistance.",
+                },
+                {
+                  icon: "💀",
+                  title: "Day 1 — Hard Attack",
+                  desc: "We target hard-bodied insects and eggs with a penetrating solution that gets into crevices and kills what hides.",
+                },
+                {
+                  icon: "🌿",
+                  title: "Day 5 — Broad Sweep",
+                  desc: "Four days later we hit mold spores and soft-bodied insects with a different mode of action — covering what Day 1 missed.",
+                },
+                {
+                  icon: "🪴",
+                  title: "Commercial Pot Size",
+                  desc: "7 gallon pots for commercial grows.",
+                },
+              ].map((item: { icon: string; title: string; desc: string }, i: number) => (
+                <div key={i} style={{ display: "flex", gap: 12, marginBottom: i < 3 ? 14 : 0, paddingBottom: i < 3 ? 14 : 0, borderBottom: i < 3 ? "1px solid #1a1a1a" : "none" }}>
+                  <div style={{ fontSize: 20, flexShrink: 0 }}>{item.icon}</div>
+                  <div>
+                    <div style={{ fontSize: 13, fontWeight: "bold", color: "#e4ddd0", marginBottom: 4 }}>{item.title}</div>
+                    <div style={{ fontSize: 12, color: "#666", lineHeight: 1.6 }}>{item.desc}</div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         )}
